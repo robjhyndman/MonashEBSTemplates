@@ -74,6 +74,9 @@ $if(verbatim-in-note)$
 $endif$
 $if(geometry)$
 \usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+$else$
+\usepackage{geometry}
+\geometry{a4paper, top=2cm, bottom=3cm, left=2cm, right=2cm}
 $endif$
 $if(lang)$
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
@@ -103,8 +106,9 @@ $if(tables)$
 % Fix footnotes in tables (requires footnote package)
 \IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
 $endif$
+\usepackage{graphicx}
 $if(graphics)$
-\usepackage{graphicx,grffile}
+\usepackage{grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -166,10 +170,56 @@ $if(dir)$
 \fi
 $endif$
 
+\usepackage{color,hyperref,url,fontawesome}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{1cm}
+\setlength{\TPVertModule}{1cm}
+
+\newsavebox{\lethdone}
+\newsavebox{\lethdtwo}
+\newsavebox{\headname}
+
+\sbox{\lethdone}{\hbox{\includegraphics[width=6.5cm]{MBSportrait}}}
 
 
-%% MONASH STUFF
-\usepackage{monashletter}
+\newlength{\junkw}
+
+\makeatletter
+\def\ps@monash{\begin{textblock}{8}(1.2,1)
+\usebox{\lethdone}
+\end{textblock}
+\begin{textblock}{5}(14.5,1)
+\usebox{\headname}
+\end{textblock}
+\begin{textblock}{10}(1.2,27.2)\usebox{\lethdtwo}\end{textblock}\def\thepage{}}
+
+\@ifundefined{opening}{}{%
+\renewcommand*{\opening}[1]{\thispagestyle{monash}%
+   {\@date\par}%
+  \vspace{2\parskip}%
+  {\raggedright \toname \\ \toaddress \par}%
+  \vspace{2\parskip}%
+  #1\par\nobreak}}
+\makeatother
+
+\def\section#1{\vspace{0.3cm}\par{\textsf{\bfseries\Large #1}}\vspace*{0.02cm}\par}
+\def\subsection#1{\vspace{0.3cm}\par{\textsf{\bfseries\large #1}}\vspace*{0.02cm}\par} %}
+
+% Date
+\def\Date{\number\day}
+\def\Month{\ifcase\month\or
+ January\or February\or March\or April\or May\or June\or
+ July\or August\or September\or October\or November\or December\fi}
+\def\Year{\number\year}
+
+% Spacing
+\RequirePackage{setspace}
+
+% Fix href problems
+\def\href#1{}
+
+
 
 $for(header-includes)$
 $header-includes$

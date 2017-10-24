@@ -9,9 +9,8 @@ semester: Semester One 2017
 examperiod: Examination Period
 openbook: false
 calculators: true
-output:
-  bookdown::pdf_document2:
-    template: examtemplate.tex
+output: 
+  MonashEBSTemplates::exam:
     fig_caption: true
     fig_height: 3.7
     fig_width: 6
