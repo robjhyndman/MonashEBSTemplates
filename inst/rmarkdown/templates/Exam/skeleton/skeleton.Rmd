@@ -1,0 +1,50 @@
+---
+unitcode: ETCXXXX
+title: "Advanced Bean Counting"
+clayton: true
+caulfield: false
+duration: 2 hours writing time
+reading: 10 minutes
+semester: Semester One 2017
+examperiod: Examination Period
+openbook: false
+calculators: true
+output:
+  bookdown::pdf_document2:
+    template: examtemplate.tex
+    fig_caption: true
+    fig_height: 3.7
+    fig_width: 6
+    highlight: tango
+    includes:
+      in_header: preamble.tex
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, cache=TRUE)
+library(fpp2)
+```
+
+**The exam contains FIVE questions. ALL questions must be answered. The exam is worth 100 marks in total.**
+
+\vspace*{2cm}
+
+
+# 
+
+First question.
+
+\marks{20}
+
+# 
+
+Second question.
+
+(a)
+
+    Part a. \marks{4}
+
+(b) More stuff. \marks{10}
+
+(c) Final part. \marks{6}

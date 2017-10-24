@@ -1,0 +1,13 @@
+---
+spacing: 1.4
+output:
+  bookdown::pdf_document2:
+    template: monashletter.tex
+toname: Helen of Troy
+toaddress: University of Greece\newline Athens
+opening: Dear Helen
+closing: Best wishes
+---
+
+I am writing to ask you to \dots
+

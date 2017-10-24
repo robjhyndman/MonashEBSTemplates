@@ -1,0 +1,377 @@
+\documentclass[11pt, a4paper]{article}
+$if(fontfamily)$
+\usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
+$else$
+\usepackage{lmodern}
+$endif$
+$if(linestretch)$
+\usepackage{setspace}
+\setstretch{$linestretch$}
+$endif$
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
+  \usepackage[utf8]{inputenc}
+$if(euro)$
+  \usepackage{eurosym}
+$endif$
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+$if(euro)$
+  \newcommand{\euro}{€}
+$endif$
+$if(mainfont)$
+    \setmainfont[$for(mainfontoptions)$$mainfontoptions$$sep$,$endfor$]{$mainfont$}
+$endif$
+$if(sansfont)$
+    \setsansfont[$for(sansfontoptions)$$sansfontoptions$$sep$,$endfor$]{$sansfont$}
+$endif$
+$if(monofont)$
+    \setmonofont[Mapping=tex-ansi$if(monofontoptions)$,$for(monofontoptions)$$monofontoptions$$sep$,$endfor$$endif$]{$monofont$}
+$endif$
+$if(mathfont)$
+    \setmathfont(Digits,Latin,Greek)[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
+$endif$
+$if(CJKmainfont)$
+    \usepackage{xeCJK}
+    \setCJKmainfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmainfont$}
+$endif$
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{hyperref}
+$if(colorlinks)$
+\PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
+$endif$
+\hypersetup{unicode=true,
+$if(title-meta)$
+            pdftitle={$title-meta$},
+$endif$
+$if(author-meta)$
+            pdfauthor={$author-meta$},
+$endif$
+$if(keywords)$
+            pdfkeywords={$for(keywords)$$keywords$$sep$; $endfor$},
+$endif$
+$if(colorlinks)$
+            colorlinks=true,
+            linkcolor=$if(linkcolor)$$linkcolor$$else$Maroon$endif$,
+            citecolor=$if(citecolor)$$citecolor$$else$Blue$endif$,
+            urlcolor=$if(urlcolor)$$urlcolor$$else$Blue$endif$,
+$else$
+            pdfborder={0 0 0},
+$endif$
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+$if(lang)$
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=$babel-lang$]{babel}
+$if(babel-newcommands)$
+  $babel-newcommands$
+$endif$
+\else
+  \usepackage{polyglossia}
+  \setmainlanguage[$polyglossia-lang.options$]{$polyglossia-lang.name$}
+$for(polyglossia-otherlangs)$
+  \setotherlanguage[$polyglossia-otherlangs.options$]{$polyglossia-otherlangs.name$}
+$endfor$
+\fi
+$endif$
+$if(natbib)$
+\usepackage{natbib}
+\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
+$endif$
+$if(biblatex)$
+\usepackage$if(biblio-style)$[style=$biblio-style$]$endif${biblatex}
+$if(biblatexoptions)$\ExecuteBibliographyOptions{$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$}$endif$
+$for(bibliography)$
+\addbibresource{$bibliography$}
+$endfor$
+$endif$
+$if(listings)$
+\usepackage{listings}
+$endif$
+$if(lhs)$
+\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
+$endif$
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+$if(verbatim-in-note)$
+\usepackage{fancyvrb}
+\VerbatimFootnotes % allows verbatim text in footnotes
+$endif$
+$if(tables)$
+\usepackage{longtable,booktabs}
+$endif$
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+$if(links-as-notes)$
+% Make links footnotes instead of hotlinks:
+\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
+$endif$
+$if(strikeout)$
+\usepackage[normalem]{ulem}
+% avoid problems with \sout in headers with hyperref:
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+$endif$
+$if(indent)$
+$else$
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+$endif$
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+$if(numbersections)$
+\setcounter{secnumdepth}{5}
+$else$
+\setcounter{secnumdepth}{0}
+$endif$
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+$if(title)$
+  \title{$title$}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+$else$
+  \title{}
+  \pretitle{\vspace{\droptitle}}
+  \posttitle{}
+$endif$
+$if(subtitle)$
+\subtitle{$subtitle$}
+$endif$
+$if(author)$
+  \author{$for(author)$$author$$sep$ \\ $endfor$}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+$else$
+  \author{}
+  \preauthor{}\postauthor{}
+$endif$
+$if(date)$
+  \predate{\centering\large\emph}
+  \postdate{\par}
+  \date{$date$}
+$else$
+  \date{}
+  \predate{}\postdate{}
+$endif$
+
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+
+\usepackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{1cm}
+\setlength{\TPVertModule}{1cm}
+\usepackage{geometry}
+\geometry{a4paper,text={16.5cm,25.2cm},centering}
+\usepackage{bm,url,setspace,eukdate}
+\usepackage{mathpazo}
+\usepackage[lf,t]{carlito}
+\usepackage{paralist,lastpage,fancyhdr,multicol}
+\usepackage{booktabs,verbatimbox}
+\usepackage{amsmath,bm,microtype}
+
+\setlength{\parskip}{1.2ex}
+\setlength{\parindent}{0em}
+\clubpenalty = 10000
+\widowpenalty = 10000
+
+%% CAPTIONS
+\RequirePackage{caption}
+\DeclareCaptionStyle{italic}[justification=centering]
+ {labelfont={bf},textfont={it},labelsep=colon}
+\captionsetup[figure]{style=italic,format=hang,singlelinecheck=true}
+\captionsetup[table]{style=italic,format=hang,singlelinecheck=true}
+
+%% FIGURE placement
+\usepackage{float}
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+    \expandafter\origfigure\expandafter[H]
+} {
+    \endorigfigure
+}
+
+%% QUESTIONS
+\usepackage{xifthen}
+\usepackage[compact,sf,bf]{titlesec}
+\titleformat{\section}[block]
+  {\fontsize{12}{13}\bfseries}
+  {\ifthenelse{\value{question} > 0}{\endquestion\clearpage}{}
+  \textbf{QUESTION} \addtocounter{question}{1}\arabic{question}}
+  {0.4em}{\noindent\setcounter{mks}{0}}
+\newcounter{question}
+\newcounter{mks}
+\setcounter{question}{0}
+\def\endquestion{\nopagebreak\par\nopagebreak\rightline{\textbf{[Total: \arabic{mks} marks]}}\vspace*{0.5cm}\centerline{\bf--- END OF QUESTION \arabic{question} ---}}
+
+% Header and Footer
+\renewcommand{\headrulewidth}{0pt}
+\pagestyle{fancy}
+\lhead{}
+\rhead{}
+\cfoot{}
+\rfoot{\sf\textsl{Page \thepage\ of \pageref{LastPage}}}
+\def\marks#1{\par\rightline{[#1 marks]}\addtocounter{mks}{#1}}
+\def\pred#1#2#3{\hat{#1}_{#2|#3}}
+
+% Redefine plain style so first page matches the rest.
+\fancypagestyle{plain}{%
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyhf{}%
+  \fancyfoot[R]{\sf\textsl{Page \thepage\ of \pageref{LastPage}}}
+}
+
+% TITLE PAGE
+\makeatletter
+\newcommand \responsefill {\leavevmode \cleaders \hb@xt@ 0.7cm{\hss ~\underline{\hspace*{0.5cm}}~\hss }\hfill \kern \z@}
+\makeatother
+
+\def\Square{\raisebox{0.1cm}{\fbox{\tiny\phantom{x}}~}}
+\def\tick{\checkmark ~}
+
+\title{}
+\author{}
+\preauthor{}
+\postauthor{}
+\predate{}
+\postdate{}
+\date{}
+\posttitle{\newpage}
+\pretitle{\fontsize{12}{14}\sf
+  \begin{textblock}{13}(2,0.7)
+    \includegraphics[height=1.2cm]{monash1line}
+  \end{textblock}
+  \begin{textblock}{5}(15.5,1.5)\footnotesize\sf
+    Office Use Only\newline
+    \begin{tabular}{|l|l|l|}
+    \hline
+    \hspace*{0.5cm} & \hspace*{1.2cm}  & \hspace*{.75cm} \tabularnewline[0.6cm]
+    \hline
+    \end{tabular}
+  \end{textblock}
+ \begin{textblock}{17}(2,3)\sffamily
+    \begin{center}\bfseries\Large
+      $semester$\\
+      Examination Period\\[0.8cm]
+      Faculty of Business \& Economics
+    \end{center}\vspace*{0.4cm}
+    \begin{tabular}{@{}p{4.5cm}p{10cm}}
+      \bfseries EXAM CODES:  & \bfseries {$unitcode$} \tabularnewline[0.4cm]
+      \bfseries TITLE OF PAPER: & \bfseries {$title$} \tabularnewline[0.4cm]
+      \bfseries EXAM DURATION: & {$duration$} \tabularnewline[0.4cm]
+      \bfseries READING TIME: & {$reading$}
+    \end{tabular}
+    \vspace*{0.4cm}\par\fontsize{11}{12}\sf
+    \textbf{\textit{THIS PAPER IS FOR STUDENTS STUDYING AT: (tick where applicable)}}\par
+    \begin{tabular}{p{2.3cm}p{2.8cm}p{2.5cm}p{3.7cm}p{2.9cm}}
+      $if(berwick)$ \tick $else$ \Square $endif$ Berwick & 
+      $if(clayton)$ \tick $else$ \Square $endif$ Clayton & 
+      $if(malaysia)$ \tick $else$ \Square $endif$ Malaysia & 
+      \Square Off Campus Learning & 
+      \Square Open Learning\tabularnewline[0.1cm]
+      $if(caulfield)$ \tick $else$ \Square $endif$ Caulfield & 
+      \Square Gippsland & 
+      $if(peninsula)$ \tick $else$ \Square $endif$ Peninsula & 
+      \Square Monash Extension & 
+      \Square South Africa \tabularnewline[0.1cm]
+      \Square Parkville & 
+      \Square Other (specify)
+    \end{tabular}
+  \end{textblock}
+  \begin{textblock}{17}(2,12.7)\fontsize{11}{12}\sf\raggedright
+    During an exam, you must not have in your possession any item/material that has not been authorised for your exam. This includes books, notes, paper, electronic device/s, mobile phone, smart watch/device, calculator, pencil case, or writing on any part of your body.  Any authorised items are listed below.\break
+    Items/materials on your desk, chair, in your clothing or otherwise on your person will be deemed to be in your possession. 
+
+    \textbf{No examination materials are to be removed from the room.} This includes retaining, copying, memorising or noting down content of exam material for personal use or to share with any other person by any means following your exam.
+
+    Failure to comply with the above instructions, or attempting to cheat or cheating in an exam is a discipline offence under Part 7 of the Monash University (Council) Regulations.
+  \end{textblock}
+  \begin{textblock}{17}(2,17.7)
+    \underline{\textbf{AUTHORISED MATERIALS}}
+
+    \begin{tabular}{lll}
+    \bfseries OPEN BOOK 
+      & $if(openbook)$ \tick $else$ \Square $endif$ YES 
+      & $if(openbook)$ \Square $else$ \tick $endif$ NO  \\[0.5cm]
+    \bfseries CALCULATORS 
+      & $if(calculators)$ \tick $else$ \Square $endif$ YES 
+      & $if(calculators)$ \Square $else$ \tick $endif$ NO  \\
+    \hspace*{0.4cm} {\footnotesize  If YES, only a HP 10bII+ calculator is permitted}\\[0.3cm]
+    \bfseries SPECIFICALLY PERMITTED ITEMS  & \Square  YES & \tick NO \\
+    \textbf{if yes, items permitted are:  }
+    \end{tabular}
+  \end{textblock}
+  \begin{textblock}{17}(2,24.6)
+    \begin{center}
+      \begin{tabular}{|p{8cm}@{\hspace*{1cm}}p{6.7cm}|}
+      \hline
+      \multicolumn{2}{|c|}{\bfseries\itshape Candidates must complete this section if required to write answers within this paper} \\[0.8cm]
+      STUDENT ID: \responsefill  &      DESK NUMBER: \responsefill\\
+      \hline
+      \end{tabular}
+    \end{center}
+  \end{textblock}
+}
+
+\begin{document}
+\maketitle
+
+$for(include-before)$
+$include-before$
+
+$endfor$
+
+$body$
+
+\endquestion
+
+$for(include-after)$
+$include-after$
+
+$endfor$
+
+\end{document}

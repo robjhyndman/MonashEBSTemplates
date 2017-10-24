@@ -1,0 +1,67 @@
+---
+title: "Slide template"
+author: "Rob J Hyndman"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+fontsize: 14pt
+output:
+  beamer_presentation:
+    fig_height: 5
+    fig_width: 8
+    highlight: tango
+    theme: metropolis
+header-includes:
+  - \usepackage{MonashBlue}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE, cache=TRUE, dev.args=list(bg=grey(0.9), pointsize=11))
+```
+
+# Intro
+
+
+## Slide with Bullets
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+Use `\alert` to \alert{highlight} some text
+
+###A title block
+Just an example
+
+# More stuff
+
+## Slide with R Output
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r pressure}
+plot(pressure)
+```
+
+
+## Slide with mathematics
+
+  Quantile Score for observation $y$.   For $0<p<1$:
+
+  \begin{block}{}
+    \[
+      S(y_t,q_t(p)) = \left\{
+      \begin{array}{rl}
+      p(y_t-q_t(p)) & \text{if $y_t \ge q_t(p)$}\\
+      (1-p)(q_t(p)-y_t) & \text{if $y_t < q_t(p)$}
+      \end{array}\right.
+    \]
+  \end{block}
+ 
+ Average score over all percentiles gives the best distribution forecast:
+    \[
+    QS = \frac{1}{99T}\sum_{p=1}^{99}\sum_{t=1}^T S(q_t(p),y_t)
+    \]
+ 

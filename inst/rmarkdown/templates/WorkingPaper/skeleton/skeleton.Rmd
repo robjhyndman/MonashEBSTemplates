@@ -1,0 +1,54 @@
+---
+title: "Our great idea"
+author:
+- familyname: Troy
+  othernames: Helen
+  address: University of Greece\newline Athens
+  email: helen.troy@gmail.com
+  correspondingauthor: true
+- familyname: Khan
+  othernames: Genghis
+  address: Mongolian Institute
+blind: false
+cover: true
+bibliography: references.bib
+biblio-style: authoryear-comp
+wpnumber: no/yr
+jelcodes: C10,C14,C22
+abstract: "A brief summary of our ideas"
+keywords: "blah, blah"
+fontsize: 11pt
+fontfamily: mathpazo
+subparagraph: true
+toc: false
+output:
+  bookdown::pdf_document2:
+    template: monashwp.tex
+    fig_caption: yes
+    fig_height: 5
+    fig_width: 8
+    includes:
+      in_header: preamble.tex
+    keep_tex: yes
+    number_sections: yes
+    citation_package: biblatex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, cache=TRUE, messages=FALSE, warning=FALSE)
+# Make sure you have the latest version of rmarkdown and bookdown
+#devtools::install_github("rstudio/rmarkdown")
+#devtools::install_github("rstudio/bookdown")
+library(ggplot2)
+```
+
+
+#Introduction
+
+In a famous paper, @BC64 introduced a family of transformations \dots
+
+```{r histogram, fig.cap="Nice histogram", message=FALSE, warning=FALSE}
+qplot(exp(rnorm(200)))
+```
+
+Consider the logNormal data plotted in Figure \ref{fig:histogram}.
