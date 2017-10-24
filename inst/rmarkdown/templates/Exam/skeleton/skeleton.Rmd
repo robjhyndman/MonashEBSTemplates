@@ -33,7 +33,8 @@ library(fpp2)
 
 # 
 
-First question.
+Show that the following expression is the MLE for the variance assuming a Gaussian distribution.
+$$ \hat{\sigma}^2 = \frac{1}{n} \sum_{i=1}^n (x_i-\bar{x})^2$$
 
 \marks{20}
 

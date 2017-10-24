@@ -196,10 +196,6 @@ $else$
   \predate{}\postdate{}
 $endif$
 
-$for(header-includes)$
-$header-includes$
-$endfor$
-
 
 \usepackage[absolute,overlay]{textpos}
 \setlength{\TPHorizModule}{1cm}
@@ -207,8 +203,8 @@ $endfor$
 \usepackage{geometry}
 \geometry{a4paper,text={16.5cm,25.2cm},centering}
 \usepackage{bm,url,setspace,eukdate}
+\usepackage{bera}
 \usepackage{mathpazo}
-\usepackage[lf,t]{carlito}
 \usepackage{paralist,lastpage,fancyhdr,multicol}
 \usepackage{booktabs,verbatimbox}
 \usepackage{amsmath,bm,microtype}
@@ -238,11 +234,11 @@ $endfor$
 %% QUESTIONS
 \usepackage{xifthen}
 \usepackage[compact,sf,bf]{titlesec}
-\titleformat{\section}[block]
-  {\fontsize{12}{13}\bfseries}
-  {\ifthenelse{\value{question} > 0}{\endquestion\clearpage}{}
-  {\sffamily\bfseries\Large\textbf{QUESTION} \addtocounter{question}{1}\arabic{question}}}
-  {0.4em}{\noindent\setcounter{mks}{0}}
+\titleformat{\section}[block]%
+  {\fontsize{12}{13}\bfseries}%
+  {\ifthenelse{\value{question} > 0}{\endquestion\clearpage}{}%
+  {\sffamily\bfseries\Large\textbf{QUESTION}~\addtocounter{question}{1}\arabic{question}}}
+  {0.0em}{\noindent\setcounter{mks}{0}}
 \newcounter{question}
 \newcounter{mks}
 \setcounter{question}{0}
@@ -307,7 +303,7 @@ $endfor$
       \bfseries EXAM DURATION: & {$duration$} \tabularnewline[0.4cm]
       \bfseries READING TIME: & {$reading$}
     \end{tabular}
-    \vspace*{0.4cm}\par\fontsize{11}{12}\sf
+    \vspace*{0.4cm}\par\fontsize{10}{11}\sf
     \textbf{\textit{THIS PAPER IS FOR STUDENTS STUDYING AT: (tick where applicable)}}\par
     \begin{tabular}{p{2.3cm}p{2.8cm}p{2.5cm}p{3.7cm}p{2.9cm}}
       $if(berwick)$ \tick $else$ \Square $endif$ Berwick &
@@ -324,7 +320,7 @@ $endfor$
       \Square Other (specify)
     \end{tabular}
   \end{textblock}
-  \begin{textblock}{17}(2,12.7)\fontsize{11}{12}\sf\raggedright
+  \begin{textblock}{17}(2,12.7)\fontsize{10}{11}\sf\raggedright
     During an exam, you must not have in your possession any item/material that has not been authorised for your exam. This includes books, notes, paper, electronic device/s, mobile phone, smart watch/device, calculator, pencil case, or writing on any part of your body.  Any authorised items are listed below.\break
     Items/materials on your desk, chair, in your clothing or otherwise on your person will be deemed to be in your possession. 
 
@@ -332,7 +328,7 @@ $endfor$
 
     Failure to comply with the above instructions, or attempting to cheat or cheating in an exam is a discipline offence under Part 7 of the Monash University (Council) Regulations.
   \end{textblock}
-  \begin{textblock}{17}(2,17.7)
+  \begin{textblock}{17}(2,17.7)\fontsize{10}{11}\sf
     \underline{\textbf{AUTHORISED MATERIALS}}
 
     \begin{tabular}{lll}
@@ -347,7 +343,7 @@ $endfor$
     \textbf{if yes, items permitted are:  }
     \end{tabular}
   \end{textblock}
-  \begin{textblock}{17}(2,24.6)
+  \begin{textblock}{17}(2,24.6)\fontsize{10}{11}\sf
     \begin{center}
       \begin{tabular}{|p{8cm}@{\hspace*{1cm}}p{6.7cm}|}
       \hline
@@ -359,12 +355,17 @@ $endfor$
   \end{textblock}
 }
 
+
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+
 \begin{document}
 \maketitle
 
 $for(include-before)$
 $include-before$
-
 $endfor$
 
 $body$
@@ -373,7 +374,6 @@ $body$
 
 $for(include-after)$
 $include-after$
-
 $endfor$
 
 \end{document}

@@ -9,18 +9,15 @@ author:
 - familyname: Khan
   othernames: Genghis
   address: Mongolian Institute
-blind: false
-cover: true
-bibliography: references.bib
-biblio-style: authoryear-comp
-wpnumber: no/yr
-jelcodes: C10,C14,C22
 abstract: "A brief summary of our ideas"
 keywords: "blah, blah"
-fontsize: 11pt
-fontfamily: mathpazo
-subparagraph: true
+wpnumber: no/yr
+jelcodes: C10,C14,C22
+blind: false
+cover: true
 toc: false
+bibliography: references.bib
+biblio-style: authoryear-comp
 output:
   bookdown::pdf_document2:
     template: monashwp.tex
@@ -52,3 +49,6 @@ qplot(exp(rnorm(200)))
 ```
 
 Consider the logNormal data plotted in Figure \ref{fig:histogram}.
+
+$$s^2 = \sum_{i=1}^n (x_i-\bar{x})^2$$
+

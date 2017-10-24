@@ -167,12 +167,13 @@ $if(dir)$
 $endif$
 
 
-$for(header-includes)$
-$header-includes$
-$endfor$
 
 %% MONASH STUFF
 \usepackage{monashletter}
+
+$for(header-includes)$
+$header-includes$
+$endfor$
 
 \sbox{\headname}{\parbox{10cm}{\fontsize{10}{12}\sffamily\color[gray]{0.4}
 {\large\textbf{$from$}}\\

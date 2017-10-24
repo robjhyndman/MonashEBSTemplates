@@ -176,18 +176,6 @@ $if(numbersections)$
 $else$
 \setcounter{secnumdepth}{0}
 $endif$
-$if(subparagraph)$
-$else$
-% Redefines (sub)paragraphs to behave more like sections
-\ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
-$endif$
 $if(dir)$
 \ifxetex
   % load bidi as late as possible as it modifies e.g. graphicx
@@ -211,9 +199,6 @@ $endif$
 \def\fps@figure{htbp}
 \makeatother
 
-$for(header-includes)$
-$header-includes$
-$endfor$
 
 $if(title)$
 \title{$title$}
@@ -229,6 +214,7 @@ $endif$
 
 %% MONASH STUFF
 \usepackage{monashwp}
+
 $if(wpnumber)$
 \wp{$wpnumber$}
 $endif$
@@ -260,6 +246,11 @@ $else$
  \lfoot{\sf $for(author)$$author.familyname$$sep$, $endfor$: \@date}
 $endif$
 \makeatother
+
+$for(header-includes)$
+$header-includes$
+$endfor$
+
 
 \begin{document}
 $if(title)$
