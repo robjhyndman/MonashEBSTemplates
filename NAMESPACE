@@ -2,3 +2,4 @@
 
 export(exam)
 export(letter)
+export(workingpaper)

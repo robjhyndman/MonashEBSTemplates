@@ -27,3 +27,14 @@ exam <- function(...) {
                           template = template
   )
 }
+
+
+#' @rdname letter
+#' @export
+workingpaper <- function(...) {
+  template <- system.file("rmarkdown/templates/WorkingPaper/resources/monashwp.tex",
+                          package="MonashEBSTemplates")
+  bookdown::pdf_document2(...,
+                          template = template
+  )
+}
