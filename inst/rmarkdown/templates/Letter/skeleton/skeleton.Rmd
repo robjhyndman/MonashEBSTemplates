@@ -1,12 +1,19 @@
 ---
-spacing: 1.4
-output:
-  bookdown::pdf_document2:
-    template: monashletter.tex
+from: Genghis Khan
+fromqualifications: BA(Hons), PhD
+fromtitle: Associate Professor
+fromWWW: genghiskhan.com
+fromemail: Genghis.Khan@monash.edu
+fromphone: +61 3 9905 5555
+fromsignature: sigfile.png
 toname: Helen of Troy
 toaddress: University of Greece\newline Athens
 opening: Dear Helen
 closing: Best wishes
+spacing: 1.4
+output:
+  bookdown::pdf_document2:
+    template: monashletter.tex
 ---
 
 I am writing to ask you to \dots
