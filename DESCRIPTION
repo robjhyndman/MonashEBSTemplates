@@ -3,6 +3,7 @@ Version: 0.1
 Title: Monash EBS Rmarkdown Templates
 Description: This package provides Rmarkdown templates for use at Monash University, Department of Econometrics & Business Statistics.
 Authors@R: person("Rob", "Hyndman", , "Rob.Hyndman@monash.edu", c("aut", "cre"))
+Imports: bookdown
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
