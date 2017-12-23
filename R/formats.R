@@ -38,3 +38,15 @@ workingpaper <- function(...) {
                           template = template
   )
 }
+
+
+#' @rdname letter
+#' @export
+report <- function(...) {
+  template <- system.file("rmarkdown/templates/Report/resources/monashreport.tex",
+                          package="MonashEBSTemplates")
+  bookdown::pdf_document2(...,
+                          template = template
+  )
+}
+

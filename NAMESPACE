@@ -2,4 +2,5 @@
 
 export(exam)
 export(letter)
+export(report)
 export(workingpaper)

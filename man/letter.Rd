@@ -4,6 +4,7 @@
 \alias{letter}
 \alias{exam}
 \alias{workingpaper}
+\alias{report}
 \title{Output formats for Monash EBS documents}
 \usage{
 letter(...)
@@ -11,6 +12,8 @@ letter(...)
 exam(...)
 
 workingpaper(...)
+
+report(...)
 }
 \arguments{
 \item{\dots}{Arguments passed to \code{\link[bookdown]{pdf_document2}}.}
