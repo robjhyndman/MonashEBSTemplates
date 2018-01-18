@@ -318,7 +318,7 @@ $endif$
 \makeatletter
 \@ifpackageloaded{biblatex}{}{\usepackage[style=authoryear-comp, backend=biber, natbib=true]{biblatex}}
 \makeatother
-\ExecuteBibliographyOptions{bibencoding=utf8,minnames=1,maxnames=3, maxbibnames=99,dashed=false,terseinits=true,giveninits=true,uniquename=false,uniquelist=false,labeldateparts=true,doi=false, isbn=false,url=true}
+\ExecuteBibliographyOptions{bibencoding=utf8,minnames=1,maxnames=3, maxbibnames=99,dashed=false,terseinits=true,giveninits=true,uniquename=false,uniquelist=false,doi=false, isbn=false,url=true,sortcites=false}
 
 \DeclareFieldFormat{url}{\texttt{\url{#1}}}
 \DeclareFieldFormat[article]{pages}{#1}
@@ -327,8 +327,15 @@ $endif$
 \DeclareFieldFormat[article]{volume}{\mkbibbold{#1}}
 \DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
 \DeclareFieldFormat[article]{title}{\MakeCapital{#1}}
+\DeclareFieldFormat[article]{url}{}
+%\DeclareFieldFormat[book]{url}{}
+%\DeclareFieldFormat[inbook]{url}{}
+%\DeclareFieldFormat[incollection]{url}{}
+%\DeclareFieldFormat[inproceedings]{url}{}
 \DeclareFieldFormat[inproceedings]{title}{#1}
 \DeclareFieldFormat{shorthandwidth}{#1}
+%\DeclareFieldFormat{extrayear}{}
+% No dot before number of articles
 \usepackage{xpatch}
 \xpatchbibmacro{volume+number+eid}{\setunit*{\adddot}}{}{}{}
 % Remove In: for an article.
