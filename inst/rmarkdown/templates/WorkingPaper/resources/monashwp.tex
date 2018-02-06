@@ -427,11 +427,11 @@ $endif$
 
 $if(cover)$$else$\nocover$endif$
 $if(blind)$\blind$endif$
-$if(blind)$$else$\author{$for(author)$$author.othernames$ $author.familyname$$sep$, $endfor$}$endif$
+$if(blind)$$else$\author{$for(author)$$author.othernames$~$author.familyname$$sep$, $endfor$}$endif$
 $if(blind)$$else$\addresses{$for(author)$
 \textbf{$author.othernames$ $author.familyname$}\newline
-$author.address$\newline
-$if(author.email)${Email: $author.email$\newline}$else$$endif$$if(author.correspondingauthor)$Corresponding author$endif$\\[1cm]
+$author.address$
+$if(author.email)$\newline{Email: $author.email$}$else$$endif$$if(author.correspondingauthor)$\newline Corresponding author$endif$\\[1cm]
 $endfor$
 }$endif$
 
