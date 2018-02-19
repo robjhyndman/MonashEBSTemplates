@@ -366,6 +366,8 @@ $endif$
 
 \makeatletter
 \def\organization#1{\gdef\@organization{#1}}
+\def\telephone#1{\gdef\@telephone{#1}}
+\def\email#1{\gdef\@email{#1}}
 \makeatother
 $if(organization)$
   \organization{$organization$}
@@ -379,12 +381,26 @@ $else$
   \def\name{Department of \hbox{Econometrics \&} \hbox{Business Statistics}}
 $endif$
 
+$if(phone)$
+  \telephone{$phone$}
+$else$
+  \telephone{(03) 9905 2478}
+$endif$
+
+$if(email)$
+  \email{$email$}
+$else$
+  \email{BusEco-Econometrics@monash.edu}
+$endif$
+
 \def\webaddress{\url{http://buseco.monash.edu/ebs/consulting/}}
 \def\abn{12 377 614 012}
 \def\logo{\includegraphics[width=6cm]{MBSportrait}}
 \def\extraspace{\vspace*{1.6cm}}
-\def\contactdetails{\faicon{phone} & (03) 9905 2478\\
-                    \faicon{envelope}     & BusEco-Econometrics@monash.edu}
+\makeatletter
+\def\contactdetails{\faicon{phone} & \@telephone \\
+                    \faicon{envelope} & \@email}
+\makeatother
 
 %%%% FRONT PAGE OF REPORTS
 
