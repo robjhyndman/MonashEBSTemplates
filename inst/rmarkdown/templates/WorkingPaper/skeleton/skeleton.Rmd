@@ -39,7 +39,7 @@ library(ggplot2)
 ```
 
 
-#Introduction
+# Introduction
 
 In a famous paper, @BC64 introduced a family of transformations \dots
 
