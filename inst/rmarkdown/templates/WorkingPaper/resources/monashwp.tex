@@ -1,4 +1,4 @@
-\documentclass[$if(fontsize)$$fontsize$$else$11pt$endif$,$if(lang)$$babel-lang$,$endif$a4paper,$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+\documentclass[$if(fontsize)$$fontsize$$else$11pt$endif$,$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$$else$a4paper$endif$,$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
 $if(fontfamily)$
 \usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
 $else$
@@ -102,7 +102,7 @@ $if(geometry)$
 \usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $else$
 \usepackage{geometry}
-\geometry{a4paper, text={16cm,24cm}}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
 $endif$
 $if(lang)$
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
@@ -308,10 +308,9 @@ $endif$
                 \Month~\Year\\[1cm]
                 Working Paper \@wp
         \end{center}}}
-\def\pageone{{\sffamily
-        \newpage%\blankpage
-        \thispagestyle{empty}
-        \vbox to 23cm{
+\def\pageone{{\sffamily\setstretch{1}%
+        \thispagestyle{empty}%
+        \vbox to \textheight{%
         \raggedright\baselineskip=1.2cm
      {\fontsize{24.88}{30}\sffamily\textbf{\expandafter{\@title}}}
         \vspace{2cm}\par
@@ -322,11 +321,11 @@ $endif$
      \thispagestyle{plain}\raggedright\baselineskip=1.2cm
      {\fontsize{24.88}{30}\sffamily\textbf{\expandafter{\@title}}}\vspace{1cm}\par
         }}
-\def\titlepage{{\cover\newpage\setstretch{1}\pageone\newpage\blindtitle}}
+\def\titlepage{{\cover\newpage\pageone\newpage\blindtitle}}
 
 \def\blind{\def\titlepage{{\blindtitle}}\let\maketitle\blindtitle}
 \def\titlepageonly{\def\titlepage{{\pageone\end{document}}}}
-\def\nocover{\def\titlepage{{\newpage\setstretch{1}\pageone\newpage\blindtitle}}\let\maketitle\titlepage}
+\def\nocover{\def\titlepage{{\pageone\newpage\blindtitle}}\let\maketitle\titlepage}
 \let\maketitle\titlepage
 \makeatother
 
@@ -417,7 +416,7 @@ $endif$
 \renewcommand*{\finalnamedelim}{%
   %\ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}% there really should be no funny Oxford comma business here
   \addspace\&\space}
-  
+
 
 $if(wpnumber)$
 \wp{$wpnumber$}
