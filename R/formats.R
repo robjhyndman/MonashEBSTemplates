@@ -1,7 +1,8 @@
 #' Output formats for Monash EBS documents
 #'
 #' Each function is a wrapper for \code{\link[bookdown]{pdf_document2}} to
-#' produce documents in Monash EBS style.
+#' produce documents in Monash EBS style. For Monash-themed beamer slides, use
+#' the \code{\link[binb]{monash}} template in the \code{binb} package.
 #'
 #' @param \dots Arguments passed to \code{\link[bookdown]{pdf_document2}}.
 #'

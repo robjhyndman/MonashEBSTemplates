@@ -4,10 +4,14 @@ This package provides Rmarkdown templates for use at Monash University, Departme
 
 It contains
 
- * Monash working paper template
- * Monash beamer template
+ * Monash EBS working paper template
  * Monash letter template
  * Monash exam template
+ * Monash consulting report template
 
-There is also a Monash thesis template available at https://github.com/robjhyndman/MonashThesis
+For Monash-themed beamer slides (for the Monash business school), use the `monash` template in the [`binb`](https://github.com/eddelbuettel/binb) package.
 
+There are also Monash thesis template available:
+
+ * PhD thesis template: https://github.com/robjhyndman/MonashThesis
+ * Honours thesis template: https://github.com/robjhyndman/MonashHonoursThesis
