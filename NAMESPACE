@@ -2,5 +2,6 @@
 
 export(exam)
 export(letter)
+export(memo)
 export(report)
 export(workingpaper)

@@ -51,3 +51,12 @@ report <- function(...) {
   )
 }
 
+#' @export
+memo <- function(...) {
+  template <- system.file("rmarkdown/templates/Memo/resources/monashmemo.tex",
+                          package="MonashEBSTemplates")
+  bookdown::pdf_document2(...,
+                          template = template
+  )
+}
+

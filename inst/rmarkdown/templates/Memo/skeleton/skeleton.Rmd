@@ -1,0 +1,9 @@
+---
+title: Note to self
+author: Genghis Khan
+spacing: 1.4
+output: MonashEBSTemplates::memo
+---
+
+Meeting notes
+

@@ -8,6 +8,7 @@ It contains
  * Monash letter template
  * Monash exam template
  * Monash consulting report template
+ * Memo template (nothing to do with Monash, but a nice format)
 
 For Monash-themed beamer slides (for the Monash business school), use the `monash` template in the [`binb`](https://github.com/eddelbuettel/binb) package.
 
