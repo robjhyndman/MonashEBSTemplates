@@ -56,6 +56,7 @@ memo <- function(...) {
   template <- system.file("rmarkdown/templates/Memo/resources/monashmemo.tex",
                           package="MonashEBSTemplates")
   bookdown::pdf_document2(...,
+                          citation_package = 'biblatex',
                           template = template
   )
 }

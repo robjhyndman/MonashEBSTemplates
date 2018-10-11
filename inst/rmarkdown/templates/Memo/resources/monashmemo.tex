@@ -12,6 +12,7 @@ $endif$
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
   \usepackage[utf8]{inputenc}
+  \usepackage{csquotes}
 $if(euro)$
   \usepackage{eurosym}
 $endif$
@@ -115,16 +116,10 @@ $for(polyglossia-otherlangs)$
 $endfor$
 \fi
 $endif$
-$if(natbib)$
-\usepackage{natbib}
-\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
-$endif$
-$if(biblatex)$
-\usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
+\usepackage[style=authoryear-comp,backend=biber, natbib=true,$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
 $for(bibliography)$
 \addbibresource{$bibliography$}
 $endfor$
-$endif$
 $if(listings)$
 \usepackage{listings}
 $endif$
@@ -301,7 +296,6 @@ $endif$
 
 %% BIBLIOGRAPHY
 
-$if(biblatex)$
 \makeatletter
 \@ifpackageloaded{biblatex}{}{\usepackage[style=authoryear-comp, backend=biber, natbib=true]{biblatex}}
 \makeatother
@@ -336,8 +330,6 @@ $if(biblatex)$
 \renewcommand*{\finalnamedelim}{%
   %\ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}% there really should be no funny Oxford comma business here
   \addspace\&\space}
-$endif$
-
 
 %%% Change title format
 \usepackage{titling}
@@ -387,25 +379,9 @@ $endfor$
 
 $body$
 
-$if(natbib)$
-$if(bibliography)$
-$if(biblio-title)$
-$if(book-class)$
-\renewcommand\bibname{$biblio-title$}
-$else$
-\renewcommand\refname{$biblio-title$}
-$endif$
-$endif$
-\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+\printbibliography
 
-$endif$
-$endif$
-$if(biblatex)$
-\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
-
-$endif$
 $for(include-after)$
 $include-after$
-
 $endfor$
 \end{document}
