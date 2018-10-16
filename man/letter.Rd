@@ -5,6 +5,8 @@
 \alias{exam}
 \alias{workingpaper}
 \alias{report}
+\alias{memo}
+\alias{slides}
 \title{Output formats for Monash EBS documents}
 \usage{
 letter(...)
@@ -14,6 +16,10 @@ exam(...)
 workingpaper(...)
 
 report(...)
+
+memo(...)
+
+slides(...)
 }
 \arguments{
 \item{\dots}{Arguments passed to \code{\link[bookdown]{pdf_document2}}.}
@@ -23,8 +29,7 @@ An R Markdown output format object.
 }
 \description{
 Each function is a wrapper for \code{\link[bookdown]{pdf_document2}} to
-produce documents in Monash EBS style. For Monash-themed beamer slides, use
-the \code{\link[binb]{monash}} template in the \code{binb} package.
+produce documents in Monash EBS style.
 }
 \author{
 Rob J Hyndman

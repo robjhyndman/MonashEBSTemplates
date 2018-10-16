@@ -1,8 +1,7 @@
 #' Output formats for Monash EBS documents
 #'
 #' Each function is a wrapper for \code{\link[bookdown]{pdf_document2}} to
-#' produce documents in Monash EBS style. For Monash-themed beamer slides, use
-#' the \code{\link[binb]{monash}} template in the \code{binb} package.
+#' produce documents in Monash EBS style.
 #'
 #' @param \dots Arguments passed to \code{\link[bookdown]{pdf_document2}}.
 #'
@@ -29,7 +28,6 @@ exam <- function(...) {
   )
 }
 
-
 #' @rdname letter
 #' @export
 workingpaper <- function(...) {
@@ -51,6 +49,7 @@ report <- function(...) {
   )
 }
 
+#' @rdname letter
 #' @export
 memo <- function(...) {
   template <- system.file("rmarkdown/templates/Memo/resources/monashmemo.tex",
@@ -59,5 +58,11 @@ memo <- function(...) {
                           citation_package = 'biblatex',
                           template = template
   )
+}
+
+#' @rdname letter
+#' @export
+slides <- function(...) {
+  binb::monash(...)
 }
 
