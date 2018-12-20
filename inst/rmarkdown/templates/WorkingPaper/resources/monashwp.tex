@@ -391,14 +391,8 @@ $endif$
 \DeclareFieldFormat[article]{volume}{\mkbibbold{#1}}
 \DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
 \DeclareFieldFormat[article]{title}{\MakeCapital{#1}}
-\DeclareFieldFormat[article]{url}{}
-%\DeclareFieldFormat[book]{url}{}
-%\DeclareFieldFormat[inbook]{url}{}
-%\DeclareFieldFormat[incollection]{url}{}
-%\DeclareFieldFormat[inproceedings]{url}{}
 \DeclareFieldFormat[inproceedings]{title}{#1}
 \DeclareFieldFormat{shorthandwidth}{#1}
-%\DeclareFieldFormat{extrayear}{}
 % No dot before number of articles
 \usepackage{xpatch}
 \xpatchbibmacro{volume+number+eid}{\setunit*{\adddot}}{}{}{}
@@ -406,9 +400,6 @@ $endif$
 \renewbibmacro{in:}{%
   \ifentrytype{article}{}{%
   \printtext{\bibstring{in}\intitlepunct}}}
-
-\AtEveryBibitem{\clearfield{month}}
-\AtEveryCitekey{\clearfield{month}}
 
 \makeatletter
 \DeclareDelimFormat[cbx@textcite]{nameyeardelim}{\addspace}
