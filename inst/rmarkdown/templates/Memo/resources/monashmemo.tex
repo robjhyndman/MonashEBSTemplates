@@ -100,7 +100,7 @@ $if(geometry)$
 \usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $else$
 \usepackage{geometry}
-\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+\geometry{left=2cm,right=2cm,top=2.5cm,bottom=2.5cm}
 $endif$
 $if(lang)$
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
@@ -217,7 +217,7 @@ $endif$
 
 %% FONT
 \usepackage{bm,url}
-\usepackage[lf,t]{carlito}
+\usepackage[sfdefault,lf,t]{carlito}
 \usepackage{mathpazo}
 
 %% HEADERS AND FOOTERS
@@ -270,6 +270,8 @@ $endif$
 
 %% LINE AND PAGE BREAKING
 \sloppy
+\raggedbottom
+\usepackage[bottom]{footmisc}
 \clubpenalty = 10000
 \widowpenalty = 10000
 \brokenpenalty = 10000
