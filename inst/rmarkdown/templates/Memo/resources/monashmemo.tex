@@ -335,14 +335,31 @@ $endif$
   \addspace\&\space}
 
 %%% Change title format
+\usepackage{fancybox,color}
+\usepackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{1cm}
+\setlength{\TPVertModule}{1cm}
 \usepackage{titling}
-\pretitle{\vspace*{-2cm}\LARGE\bfseries\sffamily}
-\posttitle{\vspace*{0.2cm}\par}
-\preauthor{\large\sffamily}
-\postauthor{\hfill}
-\predate{\sffamily}
-\postdate{\break\vspace*{-0.9cm}\par\rule{\textwidth}{1pt}\par}
 
+\pretitle{%
+$if(branding)$%
+\begin{textblock}{4}(2,0.8)\includegraphics[height=1.5cm]{monash2}\end{textblock}%
+\begin{textblock}{4}(16.5,0.8)\includegraphics[trim=53 0 0 0, clip=true,height=1.5cm]{MBSPortrait}\end{textblock}%
+\vspace*{-0.5cm}
+$else$
+\vspace*{-1cm}
+$endif$
+\LARGE\bfseries}
+\posttitle{\vspace*{0.3cm}\par}
+\preauthor{\large}
+\postauthor{\hfill}
+\predate{\small}
+\postdate{}
+
+\newenvironment{fminipage}%
+{\begin{Sbox}\begin{minipage}{\textwidth}}%
+{\end{minipage}\end{Sbox}\colorbox[gray]{0.8}{\TheSbox}}
+\flushbottom
 
 \usepackage[australian]{babel}
 $if(date)$
@@ -358,7 +375,10 @@ $endfor$
 
 \begin{document}
 $if(title)$
+$if(branding)$\vspace*{0cm}$else$\vspace*{-2cm}$endif$
+\begin{fminipage}
 \maketitle
+\end{fminipage}\vspace*{0.5cm}
 $endif$
 $if(linestretch)$
 \setstretch{$linestretch$}
