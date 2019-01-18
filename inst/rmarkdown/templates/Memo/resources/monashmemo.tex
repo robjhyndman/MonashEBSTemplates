@@ -1,4 +1,4 @@
-\documentclass[$if(fontsize)$$fontsize$$else$11pt$endif$,$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$$else$a4paper$endif$,$for(classoption)$$classoption$$sep$,$endfor$]{article}
+\documentclass[$if(fontsize)$$fontsize$$else$10pt$endif$,$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$$else$a4paper$endif$,$for(classoption)$$classoption$$sep$,$endfor$]{article}
 $if(fontfamily)$
 \usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
 $else$
@@ -265,8 +265,8 @@ $endif$
   {\fontsize{12}{14}\bfseries\sffamily}
   {\thesubsection}
   {0.4em}{}
-\titlespacing{\section}{0pt}{*5}{*1}
-\titlespacing{\section}{0pt}{*2}{*0.2}
+\titlespacing{\section}{0pt}{*3}{*1}
+\titlespacing{\subsection}{0pt}{*1}{*0.5}
 
 %% LINE AND PAGE BREAKING
 \sloppy
@@ -345,7 +345,7 @@ $endif$
 $if(branding)$%
 \begin{textblock}{4}(2,0.8)\includegraphics[height=1.5cm]{monash2}\end{textblock}%
 \begin{textblock}{4}(16.5,0.8)\includegraphics[trim=53 0 0 0, clip=true,height=1.5cm]{MBSPortrait}\end{textblock}%
-\vspace*{-0.5cm}
+\vspace*{-0.6cm}
 $else$
 \vspace*{-1cm}
 $endif$
@@ -354,7 +354,7 @@ $endif$
 \preauthor{\large}
 \postauthor{\hfill}
 \predate{\small}
-\postdate{}
+\postdate{\vspace*{0.1cm}}
 
 \newenvironment{fminipage}%
 {\begin{Sbox}\begin{minipage}{\textwidth}}%
