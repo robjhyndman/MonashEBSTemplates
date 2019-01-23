@@ -1,8 +1,9 @@
 \documentclass[$if(fontsize)$$fontsize$$else$10pt$endif$,$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$$else$a4paper$endif$,$for(classoption)$$classoption$$sep$,$endfor$]{article}
 $if(fontfamily)$
+\usepackage[lf,t]{carlito}
 \usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
 $else$
-\usepackage{bera}
+\usepackage[sfdefault,lf,t]{carlito}
 $endif$
 \usepackage{setspace}
 
@@ -217,8 +218,6 @@ $endif$
 
 %% FONT
 \usepackage{bm,url}
-\usepackage[sfdefault,lf,t]{carlito}
-\usepackage{mathpazo}
 
 %% HEADERS AND FOOTERS
 \RequirePackage{fancyhdr}
@@ -376,7 +375,7 @@ $endfor$
 \begin{document}
 $if(title)$
 $if(branding)$\vspace*{0cm}$else$\vspace*{-2cm}$endif$
-\begin{fminipage}
+\begin{fminipage}\sffamily
 \maketitle
 \end{fminipage}\vspace*{0.5cm}
 $endif$
