@@ -1,9 +1,9 @@
 \documentclass[$if(fontsize)$$fontsize$$else$10pt$endif$,$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$$else$a4paper$endif$,$for(classoption)$$classoption$$sep$,$endfor$]{article}
 $if(fontfamily)$
-\usepackage[lf,t]{carlito}
 \usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
 $else$
 \usepackage[sfdefault,lf,t]{carlito}
+\usepackage{sfmath}
 $endif$
 \usepackage{setspace}
 
