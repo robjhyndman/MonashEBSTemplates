@@ -337,12 +337,10 @@ $endif$
   \addspace\&\space}
 
 %%% Change title format
+\usepackage{color,titling,framed}
 \usepackage[absolute,overlay]{textpos}
 \setlength{\TPHorizModule}{1cm}
 \setlength{\TPVertModule}{1cm}
-\usepackage{titling}
-
-\usepackage{framed}
 
 \pretitle{%
 $if(branding)$%
@@ -359,9 +357,6 @@ $endif$
 \predate{\small}
 \postdate{\vspace*{0.1cm}}
 
-\newenvironment{fminipage}%
-{\begin{Sbox}\begin{minipage}{\textwidth}}%
-{\end{minipage}\end{Sbox}\colorbox[gray]{0.8}{\TheSbox}}
 \raggedbottom
 
 \usepackage[australian]{babel}
@@ -379,9 +374,11 @@ $endfor$
 \begin{document}
 $if(title)$
 $if(branding)$\vspace*{0cm}$else$\vspace*{-2cm}$endif$
-\begin{fminipage}\sffamily
+\definecolor{shadecolor}{RGB}{210,210,210}
+\begin{snugshade}\sffamily
 \maketitle
-\end{fminipage}\vspace*{0.5cm}
+\end{snugshade}\vspace*{0.5cm}
+\definecolor{shadecolor}{RGB}{248,248,248}
 $endif$
 $if(linestretch)$
 \setstretch{$linestretch$}
