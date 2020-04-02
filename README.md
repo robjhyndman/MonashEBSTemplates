@@ -1,4 +1,8 @@
-# monash
+
+# R Markdown templates for Monash University
+
+<!-- badges: start -->
+<!-- badges: end -->
 
 This package provides Rmarkdown templates for use at Monash University, Department of Econometrics & Business Statistics.
 
@@ -17,3 +21,18 @@ There are also Monash thesis templates available:
 
  * PhD thesis template: https://github.com/robjhyndman/MonashThesis
  * Honours thesis template: https://github.com/robjhyndman/MonashHonoursThesis
+ 
+
+## Installation
+
+
+The package can be installed by:
+
+``` r
+# install.packages("remotes")
+remotes::install_github("robjhyndman/MonashEBSTemplates")
+```
+
+## Usage from RStudio
+
+After installation, restart your RStudio then go to File > New File > R Markdown > From Template. Select the template from the list and click OK. It should create a folder (if any external dependencies) and a Rmd file.
