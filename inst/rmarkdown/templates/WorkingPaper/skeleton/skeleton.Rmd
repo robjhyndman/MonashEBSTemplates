@@ -1,14 +1,14 @@
 ---
 title: "Our great idea"
 author:
-- familyname: Troy
-  othernames: Helen
-  address: University of Greece\newline Athens
-  email: helen.troy@gmail.com
+- familyname: Curie
+  othernames: Marie
+  address: University of Paris
+  email: mcurie.notreal@gmail.com
   correspondingauthor: true
-- familyname: Khan
-  othernames: Genghis
-  address: Mongolian Institute
+- familyname: Curie
+  othernames: Pierre
+  address: University of Paris
 abstract: "A brief summary of our ideas"
 keywords: "blah, blah"
 wpnumber: no/yr
