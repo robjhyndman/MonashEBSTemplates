@@ -1,14 +1,14 @@
 ---
-from: Genghis Khan
-fromqualifications: BA(Hons), PhD
-fromtitle: Associate Professor
-fromWWW: genghiskhan.com
-fromemail: Genghis.Khan@monash.edu
+from: Pierre Curie
+fromqualifications: Nobel Prize, PhD
+fromtitle: Professor
+fromWWW: curie.com
+fromemail: Pierre.Curie@monash.edu
 fromphone: +61 3 9905 5555
 fromsignature: sigfile.png
-toname: Helen of Troy
-toaddress: University of Greece\newline Athens
-opening: Dear Helen
+toname: Jacques Curie
+toaddress: University of Montpellier
+opening: Dear Jacques
 closing: Best wishes
 spacing: 1.4
 output: MonashEBSTemplates::letter

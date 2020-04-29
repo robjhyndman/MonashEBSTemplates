@@ -1,6 +1,6 @@
 ---
 title: Note to self
-author: Genghis Khan
+author: Marie Curie
 output: MonashEBSTemplates::memo
 ---
 

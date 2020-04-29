@@ -1,16 +1,16 @@
 ---
 title: "Expert advice from experts"
 author:
-- familyname: Troy
-  othernames: Helen
-  title: Professor
-  qualifications: BSc, PhD
-  email: helen.troy@gmail.com
+- familyname: Curie
+  othernames: Marie
+  address: University of Paris
+  email: mcurie.notreal@gmail.com
   correspondingauthor: true
-- familyname: Khan
-  othernames: Genghis
-  title: Mr
-  qualifications: BA, BComm, BCompSci, BLaw
+  qualifications: Nobel Prize, PhD
+- familyname: Curie
+  othernames: Pierre
+  address: University of Paris
+  qualifications: Nobel Prize, PhD
 department: Department of\newline Econometrics &\newline Business Statistics
 organization: Acme Corporation
 bibliography: references.bib
