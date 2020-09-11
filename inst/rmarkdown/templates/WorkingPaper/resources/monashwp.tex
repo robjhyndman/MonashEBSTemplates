@@ -480,6 +480,7 @@ $include-before$
 $endfor$
 $if(toc)$
 {
+\newpage
 $if(colorlinks)$
 \hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$black$endif$}
 $endif$
@@ -488,6 +489,7 @@ $endif$
 }
 $endif$
 $if(lot)$
+\newpage
 \listoftables
 $endif$
 $if(lof)$
