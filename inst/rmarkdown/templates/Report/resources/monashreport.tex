@@ -350,7 +350,7 @@ $endif$
 \DeclareDelimFormat[cbx@textcite]{nameyeardelim}{\addspace}
 \makeatother
 
-\author{$for(author)$\sf\Large\textbf{$author.title$ $author.othernames$ $author.familyname$}\\ {\sf\large $author.qualifications$\\[0.5cm]}$sep$ $endfor$}
+\author{$for(author)${\sf\Large\textbf{$author.title$ $author.othernames$ $author.familyname$}\\\sf\large $author.qualifications$\\[0.5cm]$sep$}$endfor$}
 
 $if(date)$
 \date{$date$}
