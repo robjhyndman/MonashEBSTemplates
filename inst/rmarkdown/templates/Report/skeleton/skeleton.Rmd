@@ -4,13 +4,12 @@ author:
 - familyname: Curie
   othernames: Marie
   address: University of Paris
-  email: mcurie.notreal@gmail.com
-  correspondingauthor: true
   qualifications: Nobel Prize, PhD
 - familyname: Curie
   othernames: Pierre
   address: University of Paris
   qualifications: Nobel Prize, PhD
+email: mcurie.notreal@gmail.com
 department: Department of\newline Econometrics &\newline Business Statistics
 organization: Acme Corporation
 bibliography: references.bib
