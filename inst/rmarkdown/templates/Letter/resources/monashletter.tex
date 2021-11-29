@@ -76,7 +76,7 @@ $if(geometry)$
 \usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $else$
 \usepackage{geometry}
-\geometry{a4paper, top=2cm, bottom=3cm, left=2cm, right=2cm}
+\geometry{a4paper, top=2cm, bottom=2cm, left=2cm, right=2cm}
 $endif$
 $if(lang)$
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
@@ -176,23 +176,32 @@ $endif$
 \setlength{\TPHorizModule}{1cm}
 \setlength{\TPVertModule}{1cm}
 
-\newsavebox{\lethdone}
-\newsavebox{\lethdtwo}
-\newsavebox{\headname}
-
-\sbox{\lethdone}{\hbox{\includegraphics[width=6.5cm]{MBSportrait}}}
-
-
-\newlength{\junkw}
-
 \makeatletter
-\def\ps@monash{\begin{textblock}{8}(1.2,1)
-\usebox{\lethdone}
+\def\ps@monash{%
+\begin{textblock}{4}(1.2,1)
+\includegraphics[height=1.5cm]{monash2}
+\end{textblock}%
+\begin{textblock}{4}(17.2,1)
+\includegraphics[height=1.5cm]{MBSportrait}
+\end{textblock}%
+\begin{textblock}{10}(1.2,26.4)
+{\fontsize{9}{8}\selectfont\sffamily\color[gray]{0.4}%
+\begin{tabular}{@{}l@{}}
+\textbf{$from$}, $fromqualifications$\\
+$fromtitle$\\
+Department of Econometrics \& Business Statistics\\
+Monash University, Victoria 3800, Australia.\\[0.15cm]
+\faicon{envelope} $fromemail$\quad\faicon{phone} $fromphone$\quad
+\faicon{home} $fromWWW$\\[0.1cm]
+ABN: 12 377 614 012\quad CRICOS Provider Number: 00008C
+\end{tabular}}
+\end{textblock}%
+\begin{textblock}{7}(12.7,28.2)\hfill
+\includegraphics[height=0.6cm]{AACSB}~~~
+\includegraphics[height=0.6cm]{EQUIS}~~~
+\includegraphics[height=0.6cm]{AMBA}
 \end{textblock}
-\begin{textblock}{6}(13.5,1)
-\usebox{\headname}
-\end{textblock}
-\begin{textblock}{10}(1.2,27.2)\usebox{\lethdtwo}\end{textblock}\def\thepage{}}
+\def\thepage{}}
 
 \@ifundefined{opening}{}{%
 \renewcommand*{\opening}[1]{\thispagestyle{monash}%
@@ -219,28 +228,9 @@ $endif$
 % Fix href problems
 \def\href#1{}
 
-
-
 $for(header-includes)$
 $header-includes$
 $endfor$
-
-\sbox{\headname}{\parbox{10cm}{\fontsize{10}{12}\sffamily\color[gray]{0.4}
-{\large\textbf{$from$}}\\
-$fromqualifications$\\
-$fromtitle$\\[0.2cm]
-\begin{tabular}{@{}ll@{}}
-      \faicon{home}       & $fromWWW$\\
-      \faicon{envelope}   & $fromemail$\\
-      \faicon{phone}      & $fromphone$
-\end{tabular}}}
-
-\sbox{\lethdtwo}{\hbox{\fontsize{9}{11}\sffamily\color[gray]{0.4}\begin{tabular}{@{}ll@{}}
-\multicolumn{2}{@{}l}{Department of Econometrics \& Business Statistics}\\
-\multicolumn{2}{@{}l}{Monash University}\\
-\multicolumn{2}{@{}l}{Victoria 3800, Australia.}\\[0.2cm]
-\multicolumn{2}{@{}l}{ABN: 12 377 614 012\quad CRICOS Provider Number: 00008C}
-\end{tabular}}}
 
 $if(date)$
 \date{$date$}
@@ -254,7 +244,7 @@ $include-before$
 $endfor$
 \begin{letter}{$toname$\\$toaddress$}
 \setstretch{1}
-\vspace*{2cm}
+\vspace*{1cm}\enlargethispage*{-2cm}
 \opening{$opening$}
 \setstretch{$spacing$}
 $body$
